@@ -1,0 +1,502 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sayangi: Selamat Datang Bunda!</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Poppins', sans-serif;
+            background-color: #f5f0ff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            background-color: #fff;
+            padding: 10px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            border-bottom: 4px solid #4a2c7a;
+            flex-wrap: wrap;
+            gap: 10px;
+        }
+
+        .header-left {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+        }
+
+        .logo {
+            width: 55px;
+            height: 55px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 2px solid #4a2c7a;
+        }
+
+        .header-right {
+            display: flex;
+            gap: 15px;
+            align-items: center;
+            flex-wrap: wrap;
+        }
+
+        .header-text {
+            text-align: center;
+        }
+
+        .header-text h3 {
+            color: #8b1c3a;
+            font-size: 14px;
+            font-weight: 700;
+            letter-spacing: 1px;
+        }
+
+        .header-text p {
+            color: #666;
+            font-size: 9px;
+            max-width: 200px;
+            line-height: 1.2;
+        }
+
+        .header-slogan {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+
+        .header-slogan h2 {
+            color: #8b1c3a;
+            font-size: 18px;
+            font-weight: 700;
+        }
+
+        .header-slogan span {
+            color: #c0392b;
+        }
+
+        .sayangi-logo {
+            width: 40px;
+            height: 40px;
+        }
+
+        /* Hero Section */
+        .hero {
+            background: linear-gradient(180deg, #e8e0f0 0%, #d4c4e0 50%, #f5e6d3 100%);
+            padding: 40px 20px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: -50px;
+            left: -50px;
+            width: 150px;
+            height: 150px;
+            background: rgba(255, 255, 255, 0.3);
+            border-radius: 50%;
+        }
+
+        .hero-title {
+            color: #2d1b4e;
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 10px;
+            text-shadow: 2px 2px 4px rgba(0,0,0,0.1);
+        }
+
+        .hero-subtitle {
+            color: #4a2c7a;
+            font-size: 16px;
+            font-weight: 400;
+            max-width: 500px;
+            margin: 0 auto 30px;
+            line-height: 1.5;
+        }
+
+        .hero-image-container {
+            position: relative;
+            display: inline-block;
+            margin: 20px 0;
+        }
+
+        .moon-svg {
+            width: 300px;
+            height: 300px;
+        }
+
+        .baby-illustration {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            width: 180px;
+            height: 180px;
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200"><ellipse cx="100" cy="100" rx="90" ry="85" fill="%23f5d0a9"/><ellipse cx="70" cy="85" rx="8" ry="5" fill="%23333" opacity="0.3"/><ellipse cx="130" cy="85" rx="8" ry="5" fill="%23333" opacity="0.3"/><path d="M85 100 Q100 110 115 100" stroke="%23d4a574" stroke-width="2" fill="none"/><ellipse cx="100" cy="95" rx="6" ry="3" fill="%23d4a574"/><path d="M60 130 Q100 150 140 130" stroke="%23e8b89a" stroke-width="3" fill="none"/><ellipse cx="100" cy="140" rx="15" ry="8" fill="%23e8b89a"/><path d="M50 120 Q30 100 40 80" stroke="%23f5d0a9" stroke-width="8" stroke-linecap="round" fill="none"/><path d="M150 120 Q170 100 160 80" stroke="%23f5d0a9" stroke-width="8" stroke-linecap="round" fill="none"/></svg>') no-repeat center;
+            background-size: contain;
+        }
+
+        /* Decorative Elements */
+        .cloud {
+            position: absolute;
+            background: rgba(255, 255, 255, 0.6);
+            border-radius: 50px;
+        }
+
+        .cloud-1 {
+            width: 120px;
+            height: 60px;
+            top: 10%;
+            left: 5%;
+        }
+
+        .cloud-2 {
+            width: 150px;
+            height: 80px;
+            bottom: 20%;
+            right: 5%;
+        }
+
+        .cloud-3 {
+            width: 100px;
+            height: 50px;
+            top: 30%;
+            right: 10%;
+        }
+
+        .star {
+            position: absolute;
+            color: #ffd700;
+            font-size: 14px;
+            animation: twinkle 2s infinite;
+        }
+
+        @keyframes twinkle {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
+        }
+
+        .butterfly {
+            position: absolute;
+            width: 40px;
+            height: 40px;
+            opacity: 0.7;
+        }
+
+        .flower {
+            position: absolute;
+            width: 30px;
+            height: 30px;
+            opacity: 0.6;
+        }
+
+        /* Features Section */
+        .features {
+            background: linear-gradient(180deg, #f5e6d3 0%, #e8d5c4 100%);
+            padding: 40px 20px;
+            text-align: center;
+        }
+
+        .features-title {
+            color: #2d1b4e;
+            font-size: 28px;
+            font-weight: 700;
+            margin-bottom: 30px;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, #4a2c7a 0%, #2d1b4e 100%);
+            border-radius: 50px;
+            padding: 15px 25px;
+            margin: 15px auto;
+            max-width: 500px;
+            display: flex;
+            align-items: center;
+            gap: 15px;
+            color: white;
+            box-shadow: 0 4px 15px rgba(74, 44, 122, 0.3);
+            transition: transform 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-3px);
+        }
+
+        .feature-icon {
+            width: 45px;
+            height: 45px;
+            background: rgba(255, 255, 255, 0.2);
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 24px;
+            flex-shrink: 0;
+        }
+
+        .feature-text h3 {
+            font-size: 18px;
+            font-weight: 600;
+            margin-bottom: 2px;
+        }
+
+        .feature-text p {
+            font-size: 12px;
+            opacity: 0.9;
+        }
+
+        .feature-description {
+            color: #4a2c7a;
+            font-size: 14px;
+            margin-top: 8px;
+            margin-bottom: 20px;
+            max-width: 450px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        /* Footer */
+        .footer {
+            background: linear-gradient(180deg, #e8d5c4 0%, #d4c4e0 100%);
+            padding: 20px;
+            text-align: center;
+            border-top: 1px solid rgba(74, 44, 122, 0.2);
+        }
+
+        .footer-links {
+            margin-bottom: 10px;
+        }
+
+        .footer-links a {
+            color: #4a2c7a;
+            text-decoration: none;
+            font-size: 13px;
+            font-weight: 500;
+        }
+
+        .footer-links a:hover {
+            text-decoration: underline;
+        }
+
+        .footer-links span {
+            color: #4a2c7a;
+            margin: 0 8px;
+        }
+
+        .footer-copyright {
+            color: #666;
+            font-size: 12px;
+        }
+
+        /* Responsive */
+        @media (max-width: 600px) {
+            .header {
+                flex-direction: column;
+                text-align: center;
+            }
+
+            .hero-title {
+                font-size: 28px;
+            }
+
+            .hero-subtitle {
+                font-size: 14px;
+            }
+
+            .moon-svg {
+                width: 250px;
+                height: 250px;
+            }
+
+            .feature-card {
+                padding: 12px 20px;
+            }
+
+            .feature-text h3 {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header class="header">
+        <div class="header-left">
+            <div style="width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg, #2d5a27, #4a8c3f);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;text-align:center;line-height:1.2;border:2px solid #4a2c7a;">
+                <span style="font-size:8px;">RSUD DR. R. SOETIJONO</span>
+            </div>
+            <div style="width:55px;height:55px;border-radius:50%;background:linear-gradient(135deg, #c0392b, #e74c3c);display:flex;align-items:center;justify-content:center;color:white;font-size:10px;text-align:center;line-height:1.2;border:2px solid #4a2c7a;">
+                <span style="font-size:8px;">RSUD DR. R. SOETIJONO</span>
+            </div>
+        </div>
+        <div class="header-right">
+            <div class="header-text">
+                <h3>BerAKHLAK</h3>
+                <p>Membangun etos kerja berlandaskan integritas dengan pelayanan prima</p>
+            </div>
+            <div class="header-slogan">
+                <div>
+                    <h2>Bangga<br><span>melayani</span><br>bangsa</h2>
+                </div>
+                <div style="width:40px;height:40px;border-radius:50%;background:linear-gradient(135deg, #9b59b6, #8e44ad);display:flex;align-items:center;justify-content:center;color:white;font-size:8px;text-align:center;">
+                    SAYANGI
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero">
+        <div class="cloud cloud-1"></div>
+        <div class="cloud cloud-2"></div>
+        <div class="cloud cloud-3"></div>
+
+        <div class="star" style="top:15%;left:20%;">✦</div>
+        <div class="star" style="top:25%;left:60%;animation-delay:0.5s;">✦</div>
+        <div class="star" style="top:10%;left:80%;animation-delay:1s;">✦</div>
+        <div class="star" style="top:35%;left:40%;animation-delay:1.5s;">✦</div>
+        <div class="star" style="top:20%;left:45%;animation-delay:0.3s;">✦</div>
+
+        <h1 class="hero-title">Sayangi: Selamat<br>Datang Bunda!</h1>
+        <p class="hero-subtitle">Platform edukasi terpercaya untuk membantu Bunda merawat bayi prematur dengan optimal</p>
+
+        <div class="hero-image-container">
+            <svg class="moon-svg" viewBox="0 0 300 300" xmlns="http://www.w3.org/2000/svg">
+                <defs>
+                    <linearGradient id="moonGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+                        <stop offset="0%" style="stop-color:#f9e79f"/>
+                        <stop offset="50%" style="stop-color:#f5d76e"/>
+                        <stop offset="100%" style="stop-color:#e8d45a"/>
+                    </linearGradient>
+                    <filter id="glow">
+                        <feGaussianBlur stdDeviation="3" result="coloredBlur"/>
+                        <feMerge>
+                            <feMergeNode in="coloredBlur"/>
+                            <feMergeNode in="SourceGraphic"/>
+                        </feMerge>
+                    </filter>
+                </defs>
+                <path d="M 150 20 Q 250 80 250 180 Q 250 280 150 280 Q 80 280 50 220 Q 120 240 180 200 Q 220 160 220 100 Q 220 50 150 20 Z" 
+                      fill="url(#moonGrad)" filter="url(#glow)" stroke="#e8d45a" stroke-width="2"/>
+                <ellipse cx="180" cy="100" rx="8" ry="12" fill="#e8d45a" opacity="0.5"/>
+                <ellipse cx="200" cy="150" rx="6" ry="9" fill="#e8d45a" opacity="0.4"/>
+                <ellipse cx="160" cy="200" rx="10" ry="8" fill="#e8d45a" opacity="0.3"/>
+            </svg>
+
+            <!-- Baby SVG -->
+            <svg style="position:absolute;top:50%;left:50%;transform:translate(-50%,-50%);width:160px;height:160px;" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg">
+                <!-- Body/Onesie -->
+                <ellipse cx="100" cy="130" rx="55" ry="45" fill="#f8f9fa"/>
+                <path d="M 55 130 Q 100 180 145 130" fill="#f8f9fa"/>
+                <!-- Head -->
+                <ellipse cx="100" cy="85" rx="50" ry="48" fill="#f5d0a9"/>
+                <!-- Hair -->
+                <path d="M 70 50 Q 100 30 130 50 Q 120 40 100 45 Q 80 40 70 50" fill="#8b6914"/>
+                <!-- Closed Eyes -->
+                <path d="M 75 85 Q 85 92 95 85" stroke="#8b7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <path d="M 105 85 Q 115 92 125 85" stroke="#8b7355" stroke-width="2.5" fill="none" stroke-linecap="round"/>
+                <!-- Eyelashes -->
+                <line x1="80" y1="88" x2="78" y2="93" stroke="#8b7355" stroke-width="1.5"/>
+                <line x1="85" y1="90" x2="84" y2="95" stroke="#8b7355" stroke-width="1.5"/>
+                <line x1="110" y1="90" x2="111" y2="95" stroke="#8b7355" stroke-width="1.5"/>
+                <line x1="115" y1="88" x2="117" y2="93" stroke="#8b7355" stroke-width="1.5"/>
+                <!-- Nose -->
+                <ellipse cx="100" cy="98" rx="4" ry="3" fill="#e8b89a"/>
+                <!-- Mouth -->
+                <path d="M 90 108 Q 100 115 110 108" stroke="#d4a574" stroke-width="2" fill="none" stroke-linecap="round"/>
+                <!-- Cheeks -->
+                <ellipse cx="75" cy="100" rx="8" ry="5" fill="#ffb6c1" opacity="0.4"/>
+                <ellipse cx="125" cy="100" rx="8" ry="5" fill="#ffb6c1" opacity="0.4"/>
+                <!-- Arms -->
+                <path d="M 55 125 Q 35 140 45 155" stroke="#f5d0a9" stroke-width="14" stroke-linecap="round" fill="none"/>
+                <path d="M 145 125 Q 165 140 155 155" stroke="#f5d0a9" stroke-width="14" stroke-linecap="round" fill="none"/>
+                <!-- Hands -->
+                <ellipse cx="48" cy="158" rx="8" ry="6" fill="#f5d0a9"/>
+                <ellipse cx="152" cy="158" rx="8" ry="6" fill="#f5d0a9"/>
+                <!-- Legs -->
+                <path d="M 80 165 Q 75 185 85 195" stroke="#f5d0a9" stroke-width="12" stroke-linecap="round" fill="none"/>
+                <path d="M 120 165 Q 125 185 115 195" stroke="#f5d0a9" stroke-width="12" stroke-linecap="round" fill="none"/>
+                <!-- Feet -->
+                <ellipse cx="88" cy="198" rx="10" ry="6" fill="#f5d0a9"/>
+                <ellipse cx="112" cy="198" rx="10" ry="6" fill="#f5d0a9"/>
+            </svg>
+        </div>
+
+        <!-- Butterfly decoration -->
+        <svg class="butterfly" style="bottom:15%;left:5%;" viewBox="0 0 40 40" xmlns="http://www.w3.org/2000/svg">
+            <path d="M20 20 Q10 5 5 15 Q10 25 20 20 Q30 5 35 15 Q30 25 20 20" fill="#6b4c8a" opacity="0.6"/>
+            <path d="M20 20 Q10 35 5 25 Q10 15 20 20 Q30 35 35 25 Q30 15 20 20" fill="#6b4c8a" opacity="0.4"/>
+            <line x1="20" y1="15" x2="20" y2="25" stroke="#4a2c7a" stroke-width="1"/>
+        </svg>
+
+        <!-- Flowers -->
+        <svg class="flower" style="bottom:10%;left:15%;" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="5" fill="#ffb6c1"/>
+            <circle cx="15" cy="8" r="4" fill="#ffb6c1" opacity="0.7"/>
+            <circle cx="22" cy="15" r="4" fill="#ffb6c1" opacity="0.7"/>
+            <circle cx="15" cy="22" r="4" fill="#ffb6c1" opacity="0.7"/>
+            <circle cx="8" cy="15" r="4" fill="#ffb6c1" opacity="0.7"/>
+        </svg>
+        <svg class="flower" style="bottom:5%;left:25%;" viewBox="0 0 30 30" xmlns="http://www.w3.org/2000/svg">
+            <circle cx="15" cy="15" r="4" fill="#dda0dd"/>
+            <circle cx="15" cy="9" r="3" fill="#dda0dd" opacity="0.7"/>
+            <circle cx="21" cy="15" r="3" fill="#dda0dd" opacity="0.7"/>
+            <circle cx="15" cy="21" r="3" fill="#dda0dd" opacity="0.7"/>
+            <circle cx="9" cy="15" r="3" fill="#dda0dd" opacity="0.7"/>
+        </svg>
+    </section>
+
+    <!-- Features Section -->
+    <section class="features">
+        <h2 class="features-title">Fitur Utama</h2>
+
+        <div class="feature-card">
+            <div class="feature-icon">👶📊</div>
+            <div class="feature-text">
+                <h3>Tahapan Perkembangan Bayi</h3>
+            </div>
+        </div>
+        <p class="feature-description">Pantau pertumbuhan dan perkembangan bayi Anda dengan presisi.</p>
+
+        <div class="feature-card">
+            <div class="feature-icon">📖</div>
+            <div class="feature-text">
+                <h3>E-Book Panduan Lengkap</h3>
+            </div>
+            <div class="feature-icon">📱</div>
+        </div>
+        <p class="feature-description">Panduan lengkap perawatan bayi prematur yang komprehensif.</p>
+
+        <div class="feature-card">
+            <div class="feature-icon">💬👨‍⚕️</div>
+            <div class="feature-text">
+                <h3>Layanan Interaktif Dokter Anak</h3>
+            </div>
+        </div>
+        <p class="feature-description">Forum diskusi dan konsultasi langsung dengan ahli (dr. Sp. Anak).</p>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-links">
+            <a href="#">Kebijakan Privasi</a>
+            <span>|</span>
+            <a href="#">Syarat Penggunaan</a>
+        </div>
+        <p class="footer-copyright">Copyright 2021-2022, sayangi.edukasi.id</p>
+    </footer>
+</body>
+</html>
